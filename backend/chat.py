@@ -11,12 +11,12 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
-load_dotenv()
+load_dotenv(override=False)
 
 API_KEY = os.getenv("GEMINI_API_KEY")
 if not API_KEY:
     raise RuntimeError(
-        "GEMINI_API_KEY is missing. Add it to backend/.env as GEMINI_API_KEY=your-key"
+        "GEMINI_API_KEY environment variable is missing."
     )
 
 MODEL = os.getenv("GEMINI_MODEL", "gemini-3.6-flash")
